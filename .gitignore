@@ -1,0 +1,7 @@
+.env
+__pycache__/
+*.pyc
+data/raw_outputs.jsonl
+data/scored_outputs.csv
+data/model_results.csv
+results/
