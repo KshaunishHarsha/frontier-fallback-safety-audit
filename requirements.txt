@@ -3,3 +3,4 @@ jsonlines
 pandas
 matplotlib
 openai
+python-dotenv
