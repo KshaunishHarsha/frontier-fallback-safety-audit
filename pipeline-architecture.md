@@ -201,11 +201,24 @@ A scatter plot: x = capability_score, y = reliability_score, one point per model
 
 ---
 
-## 5. Suggested Build Order (for the weekend)
+## 5. Actual Implementation (as built)
 
-1. Finalize and pre-register all four prompt batteries (do this *before* writing any model-calling code — it forces the rubric to be concrete early)
-2. Build `model_clients.py` + `runner.py`, test on 1 model with 2–3 prompts end-to-end
-3. Run the full matrix across all models
-4. Build the mechanical scorers (capability, sycophancy) — fast, no ambiguity
-5. Run human scoring pass (overconfidence calibration, over-compliance) + the 20% double-score check
-6. Aggregate, plot, and write up the result
+All phases completed. Key deviations from the original spec:
+
+**Model ladder reduced to 3 models** (from 5): Groq decommissioned `mixtral-8x7b-32768`, `llama-3.2-3b-preview`, and `gemma2-9b-it` during the hackathon run window. Final ladder:
+- `frontier-closed`: `llama-3.3-70b-versatile` via Groq
+- `mid-open-32b`: `qwen/qwen3-32b` via Groq
+- `small-open-8b`: `llama-3.1-8b-instant` via Groq
+
+**Provider changed to Groq** (from OpenRouter): OpenRouter free models returned 404s or sustained 429s throughout the run. Groq's free tier offered 14,400 RPD per model with OpenAI-compatible endpoints.
+
+**Scoring for overconfidence and overcompliance**: due to time constraints, rated by an LLM rater (Claude Sonnet 4.6) rather than a human, labeled `llm-assisted` in `scored_outputs.csv`. The 20% double-score inter-rater agreement check was not performed.
+
+**All four batteries ran cleanly**: 225 valid raw outputs (75 per model × 3 models), 0 errors in the final dataset.
+
+**Phase 4 complete**: `aggregate.py` and `plot.py` built and run. Output files:
+- `data/model_results.csv` — one row per model
+- `results/scissor_plot.png` — scatter: capability vs reliability
+- `results/subscores_plot.png` — grouped bar: reliability sub-scores per model
+
+**Phase 5 (adaptation mitigation) skipped** due to time constraints.
