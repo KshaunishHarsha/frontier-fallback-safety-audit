@@ -1,25 +1,15 @@
 models:
   - id: frontier-closed
-    provider: openrouter
-    model_name: anthropic/claude-opus-4
+    provider: groq
+    model_name: llama-3.3-70b-versatile
     tier: frontier_closed
 
-  - id: mid-open-70b
-    provider: openrouter
-    model_name: meta-llama/llama-3.3-70b-instruct
-    tier: mid_open
-
   - id: mid-open-32b
-    provider: openrouter
-    model_name: qwen/qwen-2.5-32b-instruct
+    provider: groq
+    model_name: qwen/qwen3-32b
     tier: mid_open
 
   - id: small-open-8b
-    provider: openrouter
-    model_name: meta-llama/llama-3.1-8b-instruct
+    provider: groq
+    model_name: llama-3.1-8b-instant
     tier: small_open
-
-  - id: tiny-open-2b
-    provider: openrouter
-    model_name: google/gemma-2-2b-it
-    tier: tiny_open

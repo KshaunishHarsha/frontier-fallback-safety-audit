@@ -32,13 +32,13 @@ Full context: `Context.md` | Full build spec: `Build.md` | Architecture: `Pipeli
 
 | id | model_name | tier |
 |---|---|---|
-| frontier-closed | anthropic/claude-opus-4 | frontier_closed |
-| mid-open-70b | meta-llama/llama-3.3-70b-instruct | mid_open |
-| mid-open-32b | qwen/qwen-2.5-32b-instruct | mid_open |
-| small-open-8b | meta-llama/llama-3.1-8b-instruct | small_open |
-| tiny-open-2b | google/gemma-2-2b-it | tiny_open |
+| frontier-closed | google/gemini-2.0-flash-exp:free | frontier_closed |
+| mid-open-70b | meta-llama/llama-3.3-70b-instruct:free | mid_open |
+| mid-open-32b | qwen/qwen2.5-32b-instruct:free | mid_open |
+| small-open-8b | meta-llama/llama-3.1-8b-instruct:free | small_open |
+| tiny-open-2b | google/gemma-3-4b-it:free | tiny_open |
 
-All use `provider: openrouter`.
+All use `provider: openrouter`. All are free-tier models — only `OPENROUTER_API_KEY` required (free account sufficient).
 
 ---
 
@@ -63,7 +63,7 @@ All four `.jsonl` files are populated, validated, and pre-registered. **Do not e
 
 ### ✅ Phase 2 — Model Client + Runner (DONE)
 - `src/model_clients.py`: `call_model(model_config, prompt, conversation_history=None) -> str`
-  - Routes all calls through OpenRouter via `openai` SDK (`base_url = https://openrouter.ai/api/v1`)
+  - Supports two providers: `openrouter` (OpenAI-compatible) and `gemini` (Google AI Studio OpenAI-compatible endpoint)
   - Retries on rate limits and 5xx errors with exponential backoff (max 5 retries)
   - All provider-specific code is isolated here — runner never touches SDK directly
 - `src/runner.py`: loops model × battery × item, logs every raw output to `data/raw_outputs.jsonl` immediately (incremental flush — crash-safe)

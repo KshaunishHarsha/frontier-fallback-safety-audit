@@ -3,4 +3,5 @@ jsonlines
 pandas
 matplotlib
 openai
+anthropic
 python-dotenv
