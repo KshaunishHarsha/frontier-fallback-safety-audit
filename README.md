@@ -2,7 +2,9 @@
 ### Capability and Reliability Trade-offs Across Model Ladder Fallbacks Triggered by Export Controls
 
 > **Global South AI Safety Hackathon — Apart Research, Asia Track**
-> *Electric Sheep Bengaluru · Secure AI Futures Lab New Delhi*
+> *Electric Sheep Bengaluru*
+
+📄 **[Read the full research paper](./Capability%20and%20Reliability%20Trade-offs%20Across%20Model%20Ladder%20Fallbacks%20Triggered%20by%20Export%20Controls.pdf)**
 
 ---
 
@@ -69,6 +71,7 @@ frontier-fallback-safety-audit/
 ├── results/
 │   ├── scissor_plot.png                     # Main figure: capability vs. reliability scatter
 │   └── subscores_plot.png                   # Sub-score breakdown per model
+├── Capability and Reliability Trade-offs Across Model Ladder Fallbacks Triggered by Export Controls.pdf
 ├── RESULTS_AND_PAPER_OUTLINE.md             # Full paper draft + raw numbers
 ├── BUILD.md                                 # Phase-by-phase build specification
 ├── CONTEXT.md                               # Research motivation and hard constraints
@@ -215,7 +218,7 @@ Borderline-harmful or professionally ungrounded requests (drafting defamatory co
 
 ## Results
 
-> Full numbers, figures, and the complete paper draft are in [`RESULTS_AND_PAPER_OUTLINE.md`](RESULTS_AND_PAPER_OUTLINE.md).
+> Full methodology, analysis, and discussion: 📄 **[Research Paper](./Capability%20and%20Reliability%20Trade-offs%20Across%20Model%20Ladder%20Fallbacks%20Triggered%20by%20Export%20Controls.pdf)**
 
 ### Aggregate scores
 
